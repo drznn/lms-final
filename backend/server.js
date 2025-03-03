@@ -1,15 +1,19 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+
 const app = express();
+
+// 🟢 Coloque os middlewares ANTES das rotas
+app.use(cors());
+app.use(express.json());
+
 const authRoutes = require("./routes/authRoutes");
 const feiraRoutes = require("./routes/feiraRoutes");
 
-// Configuração do servidor
-app.use("/feiras", feiraRoutes);
+// Agora carregamos as rotas
 app.use("/auth", authRoutes);
-app.use(cors());
-app.use(express.json());
+app.use("/feiras", feiraRoutes);
 
 // Rota básica para testar se o backend está rodando
 app.get("/", (req, res) => {
