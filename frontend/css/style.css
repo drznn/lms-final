@@ -1,14 +1,138 @@
 /* Reset de estilos */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
+/* Fundo da página */
+body {
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* NAVBAR - Estilo Americanas */
+.navbar {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-radius: 0 0 10px 10px;
+}
+
+/* LOGO (esquerda) */
+.navbar-left .logo {
+    font-size: 45px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Barra de Pesquisa (centro) */
+.navbar-center {
+    display: flex;
+    align-items: center;
+    width: 40%;
+}
+
+.search-bar {
+    width: 100%;
+    border-radius: 15px;
+    border: none;
+    font-size: 14px;
+}
+
+/* Ícone de usuário e botão Sair (direita) */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+/* 🔹 Ajustando tamanho do nome do usuário */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px; /* 🔺 Aumentado */
+    font-weight: bold;
+}
+
+.user-info i {
+    font-size: 24px;
+}
+
+/* 🔹 Aumentando apenas o tamanho do botão "Sair" */
+.logout-btn {
+    background-color: white;
+    color: #007bff;
+    border: 2px solid #007bff;
+    padding: 12px 20px; /* 🔺 Aumentado */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px; /* 🔺 Fonte maior */
+    transition: background 0.3s, color 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Centralização do conteúdo */
+.container {
+    text-align: center;
+    margin-top: 120px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* 🔹 Cards das feiras alinhados à esquerda */
+.feiras-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* 🔹 Alinhamento à esquerda */
+    gap: 20px;
+}
+
+/* 🔹 Melhorando espaçamento e fluidez dos cards */
+.feira-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 280px;
+    min-height: 120px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feira-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.feira-card h3 {
+    color: #007bff;
+    font-size: 20px;
+}
+
+.feira-card p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/* Estilos da tela de login */
 .login-container {
     background: white;
     padding: 20px;
@@ -34,6 +158,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
 button:hover {

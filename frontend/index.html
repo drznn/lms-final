@@ -5,9 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão de Feiras</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Bem-vindo ao Sistema de Feiras Locais</h1>
-    <a href="pages/login.html">Entrar</a>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <h1 class="logo">Gestão de Feiras</h1>
+        </div>
+
+        <div class="navbar-center">
+            <input type="text" class="search-bar" placeholder="Buscar feiras...">
+        </div>
+
+        <div class="navbar-right">
+            <div class="user-info">
+                <i class="fas fa-user-circle"></i>
+                <span id="user-name">Olá, Usuário</span>
+            </div>
+            <button id="logout" class="logout-btn">Sair</button>
+        </div>
+        
+    </nav>
+
+    <div class="container">
+        <h2>Bem-vindo ao Sistema de Feiras Locais</h2>
+        <div id="feiras-list" class="feiras-container"></div>
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
