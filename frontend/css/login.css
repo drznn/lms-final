@@ -6,10 +6,10 @@
     font-family: 'Arial', sans-serif;
 }
 
-/* Fundo escuro */
+/* Fundo azul claro */
 body {
-    background-color: #111;
-    color: white;
+    background: linear-gradient(135deg, #e3f2fd, #90caf9);
+    color: #003366;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,40 +19,46 @@ body {
 /* Container principal */
 .login-container {
     display: flex;
-    width: 800px;
+    width: 900px;
     height: 500px;
 }
 
-/* Lado esquerdo com o logo */
+/* 🔹 Lado esquerdo com o logo "A" bem maior */
 .login-left {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-left: 40px; /* Move mais para esquerda */
 }
 
 .logo {
-    font-size: 150px;
+    font-size: 500px; /* 🔹 AUMENTEI O TAMANHO */
     font-weight: bold;
     color: #007bff;
 }
 
-/* Lado direito com o formulário */
+/* 🔹 Lado direito com o formulário */
 .login-right {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: rgb(219, 227, 242);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Título "Feiras acontecendo agora" */
 .title {
-    font-size: 28px;
+    font-size: 31px;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-/* Estilos do formulário */
+/* 🔹 Estilização do formulário */
 form {
     display: flex;
     flex-direction: column;
@@ -60,9 +66,9 @@ form {
 }
 
 input {
-    background-color: #222;
-    color: white;
-    border: none;
+    background-color: #f1f8fe;
+    color: #003366;
+    border: 1px solid #90caf9;
     padding: 12px;
     margin-bottom: 10px;
     border-radius: 25px;
@@ -71,14 +77,14 @@ input {
 }
 
 input::placeholder {
-    color: #bbb;
+    color: #666;
 }
 
 input:focus {
     outline: 2px solid #007bff;
 }
 
-/* Botão de login */
+/* 🔹 Botão de login arredondado */
 .login-btn {
     background-color: #007bff;
     color: white;
@@ -94,7 +100,7 @@ input:focus {
     background-color: #0056b3;
 }
 
-/* Link para cadastro */
+/* 🔹 Link para cadastro */
 .register-link {
     margin-top: 15px;
     font-size: 14px;

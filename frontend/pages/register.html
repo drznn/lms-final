@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta - Gestão de Feiras</title>
+    <link rel="stylesheet" href="../css/register.css">
+    <script src="../js/register.js" defer></script>
+</head>
+<body>
+    <div class="register-container">
+        <div class="register-left">
+            <span class="logo">A</span>
+        </div>
+
+        <div class="register-right">
+            <h2 class="title">Crie sua conta</h2>
+
+            <form id="register-form">
+                <input type="text" id="nome" placeholder="Nome completo" required>
+                <input type="email" id="email" placeholder="E-mail" required>
+                <input type="password" id="senha" placeholder="Senha" required>
+                <button type="submit" class="register-btn">Criar conta</button>
+            </form>
+
+            <p class="login-link">Já tem uma conta? <a href="login.html" id="login-link">Entrar</a></p>
+            <p id="register-error" class="error-message" style="display: none;"></p> <!-- Mensagem de erro -->
+        </div>
+    </div>
+</body>
+</html>

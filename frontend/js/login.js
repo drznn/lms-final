@@ -1,14 +1,30 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // 🔹 Pegando elementos do formulário
     const loginForm = document.getElementById("login-form");
+    const emailInput = document.getElementById("email");
+    const senhaInput = document.getElementById("password");
     const errorMessage = document.getElementById("login-error");
+    const registerLink = document.getElementById("register-link");
+
+    // ✅ Verificação de existência de elementos
+    if (!loginForm || !emailInput || !senhaInput || !registerLink || !errorMessage) {
+        console.error("❌ ERRO: Elementos do formulário não foram encontrados. Verifique o HTML.");
+        return;
+    }
 
     loginForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
-        const email = document.getElementById("email").value;
-        const senha = document.getElementById("password").value; // Corrigido para "password"
+        const email = emailInput.value.trim();
+        const senha = senhaInput.value.trim();
 
-        errorMessage.style.display = "none"; // Esconde mensagem de erro ao tentar novamente
+        errorMessage.style.display = "none";
+
+        if (!email || !senha) {
+            errorMessage.textContent = "Preencha todos os campos!";
+            errorMessage.style.display = "block";
+            return;
+        }
 
         try {
             const response = await fetch("http://localhost:5000/auth/login", {
@@ -23,20 +39,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 throw new Error(data.message || "Erro ao fazer login");
             }
 
-            // ✅ Salva o token no localStorage
+            // ✅ Salva o token e redireciona
             localStorage.setItem("token", data.token);
-
-            // ✅ Redireciona para a página principal após o login
             window.location.href = "../index.html";
         } catch (error) {
-            console.error("Erro no login:", error);
+            console.error("❌ Erro no login:", error);
             errorMessage.textContent = error.message;
             errorMessage.style.display = "block";
         }
     });
 
-    // 🔹 Redireciona para a página de cadastro ao clicar em "Criar Conta"
-    document.getElementById("register-link").addEventListener("click", (event) => {
+    registerLink.addEventListener("click", (event) => {
         event.preventDefault();
         window.location.href = "register.html";
     });
