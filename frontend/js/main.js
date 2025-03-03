@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         if (response.ok) {
             const firstName = userData.nome.split(" ")[0]; // Pegando o primeiro nome
+            console.log("Nome do usuário:", firstName); // Log para depuração
             document.getElementById("user-name").textContent = `Olá, ${firstName}`;
         } else {
             console.error("Erro ao buscar usuário:", userData.message);

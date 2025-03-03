@@ -92,13 +92,13 @@ body {
 /* Centralização do conteúdo */
 .container {
     text-align: center;
-    margin-top: 120px;
+    margin-top: 150px;
     width: 90%;
-    max-width: 1200px;
 }
 
 /* 🔹 Cards das feiras alinhados à esquerda */
 .feiras-container {
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start; /* 🔹 Alinhamento à esquerda */

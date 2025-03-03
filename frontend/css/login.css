@@ -1,0 +1,111 @@
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Fundo escuro */
+body {
+    background-color: #111;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container principal */
+.login-container {
+    display: flex;
+    width: 800px;
+    height: 500px;
+}
+
+/* Lado esquerdo com o logo */
+.login-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    font-size: 150px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Lado direito com o formulário */
+.login-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Estilos do formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+input {
+    background-color: #222;
+    color: white;
+    border: none;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 25px;
+    font-size: 16px;
+    text-align: center;
+}
+
+input::placeholder {
+    color: #bbb;
+}
+
+input:focus {
+    outline: 2px solid #007bff;
+}
+
+/* Botão de login */
+.login-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 25px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Link para cadastro */
+.register-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.register-link a {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}

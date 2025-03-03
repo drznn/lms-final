@@ -12,13 +12,12 @@ const logRequest = (message, data = null) => {
   if (data) console.log("📩 Dados recebidos:", data);
 };
 
-// Rota de registro de usuário
+// 🟢 Rota de registro de usuário
 router.post("/register", async (req, res) => {
   logRequest("Recebendo requisição de registro...", req.body);
 
   const { nome, email, senha } = req.body;
 
-  // Valida se os campos estão preenchidos
   if (!nome || !email || !senha) {
     return res.status(400).json({ message: "Todos os campos são obrigatórios!" });
   }
@@ -45,13 +44,12 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// Rota de login
+// 🟢 Rota de login
 router.post("/login", async (req, res) => {
   logRequest("Recebendo requisição de login...", req.body);
 
   const { email, senha } = req.body;
 
-  // Valida se os campos estão preenchidos
   if (!email || !senha) {
     return res.status(400).json({ message: "E-mail e senha são obrigatórios!" });
   }
@@ -61,7 +59,6 @@ router.post("/login", async (req, res) => {
     return res.status(400).json({ message: "Usuário não encontrado!" });
   }
 
-  // Verifica a senha
   const senhaCorreta = await bcrypt.compare(senha, usuario.senha);
   if (!senhaCorreta) {
     return res.status(401).json({ message: "Senha incorreta!" });
@@ -82,6 +79,32 @@ router.post("/login", async (req, res) => {
     console.error("❌ Erro ao gerar token:", error);
     return res.status(500).json({ message: "Erro interno do servidor" });
   }
+});
+
+// 🔹 Nova Rota `/auth/me` para buscar informações do usuário autenticado
+router.get("/me", (req, res) => {
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader) {
+    return res.status(401).json({ message: "Token não fornecido." });
+  }
+
+  const token = authHeader.split(" ")[1];
+
+  jwt.verify(token, "segredo", (err, decoded) => {
+    if (err) {
+      return res.status(401).json({ message: "Token inválido." });
+    }
+
+    const usuario = users.find(user => user.email === decoded.email);
+    if (!usuario) {
+      return res.status(404).json({ message: "Usuário não encontrado." });
+    }
+
+    logRequest("Usuário autenticado!", { id: usuario.id, nome: usuario.nome, email: usuario.email });
+
+    res.json({ id: usuario.id, nome: usuario.nome, email: usuario.email });
+  });
 });
 
 module.exports = router;
