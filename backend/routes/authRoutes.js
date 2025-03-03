@@ -81,6 +81,12 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// Rota de Logout (Apenas para exibir um log no servidor)
+router.post("/logout", (req, res) => {
+  console.log("🔴 Usuário deslogado!");
+  res.status(200).json({ message: "Logout realizado com sucesso!" });
+});
+
 // 🔹 Nova Rota `/auth/me` para buscar informações do usuário autenticado
 router.get("/me", (req, res) => {
   const authHeader = req.headers.authorization;

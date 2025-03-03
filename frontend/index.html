@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão de Feiras</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- ✅ FontAwesome corrigido -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="navbar-left">
             <h1 class="logo">Gestão de Feiras</h1>
+            <button id="add-feira-btn" class="add-feira-btn">Adicionar Feira</button>
         </div>
 
         <div class="navbar-center">
@@ -23,12 +26,44 @@
             </div>
             <button id="logout" class="logout-btn">Sair</button>
         </div>
-        
     </nav>
 
     <div class="container">
-        <h2>Bem-vindo ao Sistema de Feiras Locais</h2>
+        <h2 class="welcome-title">Bem-vindo ao Sistema de Feiras Locais</h2>
         <div id="feiras-list" class="feiras-container"></div>
+    </div>
+
+    <!-- Modal de Adicionar Feira -->
+    <div id="modal-add" class="modal">
+        <div class="modal-content">
+            <h3>Adicionar Feira</h3>
+            <input type="text" id="add-nome" placeholder="Nome">
+            <input type="text" id="add-local" placeholder="Local">
+            <input type="date" id="add-data">
+            <button id="save-add" class="confirm-btn">Adicionar</button>
+            <button id="cancel-add" class="cancel-btn">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação de Exclusão -->
+    <div id="modal-delete" class="modal">
+        <div class="modal-content">
+            <p>Tem certeza que deseja excluir esta feira?</p>
+            <button id="confirm-delete" class="confirm-btn">Confirmar</button>
+            <button id="cancel-delete" class="cancel-btn">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Modal de Edição de Feira -->
+    <div id="modal-edit" class="modal">
+        <div class="modal-content">
+            <h3>Editar Feira</h3>
+            <input type="text" id="edit-nome" placeholder="Nome">
+            <input type="text" id="edit-local" placeholder="Local">
+            <input type="date" id="edit-data">
+            <button id="save-edit" class="confirm-btn">Salvar</button>
+            <button id="cancel-edit" class="cancel-btn">Cancelar</button>
+        </div>
     </div>
 
     <script src="js/main.js"></script>
