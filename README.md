@@ -58,7 +58,7 @@ O **Gestão de Feiras** é um sistema completo para gerenciamento de feiras, per
 ## 🖥️ Configuração do Projeto
 ### **1️⃣ Clone o Repositório**
 ```bash
-git clone https://github.com/seu-usuario/gestao-feiras.git
+git clone https://github.com/drznn/lms-final.git
 cd gestao-feiras
 ```
 
@@ -118,10 +118,10 @@ O sistema permite:
 ---
 
 ## 📌 Considerações Finais
-Este projeto foi desenvolvido com foco em aprendizado e aprimoramento de habilidades em **Node.js, Express, JavaScript e manipulação de DOM no frontend**. Caso queira contribuir ou relatar bugs, sinta-se à vontade para abrir uma issue! 🎯
+Este projeto foi desenvolvido com foco em aprendizado e aprimoramento de habilidades em **Node.js, Express, HTML, CSS, JavaScript e manipulação de DOM no frontend**. Caso queira contribuir ou relatar bugs, sinta-se à vontade para abrir uma issue! 🎯
 
 ---
 
 ## 📌 Autor
-👨‍💻 Desenvolvido por [Seu Nome Aqui] - Engenheiro de Software 🚀
+👨‍💻 Desenvolvido por Andre Silva Cavalcanti de Albuquerque - 378667 - Engenheiro de Software 🚀
 
