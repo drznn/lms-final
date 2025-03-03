@@ -74,6 +74,7 @@ body {
     border-radius: 15px;
     border: none;
     font-size: 14px;
+    padding: 14px;
 }
 
 /* Ícone de usuário e botão Sair (direita) */
@@ -131,11 +132,11 @@ body {
 /* 🔹 Melhorando espaçamento e fluidez dos cards */
 .feira-card {
     background: white;
-    padding: 15px;
+    padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 280px;
+    width: 400px;
     min-height: 120px;
     transition: transform 0.2s, box-shadow 0.2s;
     position: relative;

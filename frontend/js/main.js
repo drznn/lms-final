@@ -1,8 +1,35 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const feirasContainer = document.getElementById("feiras-list");
     const addFeiraBtn = document.getElementById("add-feira-btn");
+    const userNameElement = document.getElementById("user-name");
 
     let todasAsFeiras = [];
+
+    // 🟢 Buscar dados do usuário logado e exibir na navbar
+    async function carregarUsuario() {
+        const token = localStorage.getItem("token");
+        if (!token) {
+            window.location.href = "pages/login.html";
+            return;
+        }
+
+        try {
+            const response = await fetch("http://localhost:5000/auth/me", {
+                headers: { "Authorization": `Bearer ${token}` }
+            });
+
+            const userData = await response.json();
+
+            if (response.ok) {
+                const firstName = userData.nome.split(" ")[0]; // Pegando o primeiro nome
+                userNameElement.textContent = `Olá, ${firstName}`;
+            } else {
+                console.error("Erro ao buscar usuário:", userData.message);
+            }
+        } catch (error) {
+            console.error("Erro ao buscar usuário:", error);
+        }
+    }
 
     // 🟢 Função para formatar a data no formato brasileiro (dd/mm/aaaa)
     function formatarData(dataISO) {
@@ -25,7 +52,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
-    carregarFeiras();
+    carregarUsuario();  // ✅ Busca os dados do usuário
+    carregarFeiras();   // ✅ Busca as feiras e renderiza
 
     // 🟢 Renderiza Feiras
     function renderizarFeiras(feiras) {
@@ -142,5 +170,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Botão "Cancelar" fecha o modal de adição de feira
     document.getElementById("cancel-add").addEventListener("click", () => {
         document.getElementById("modal-add").style.display = "none";
+    });
+
+    // 🟢 Botão de Logout (agora com log no backend)
+    document.getElementById("logout").addEventListener("click", async () => {
+        try {
+            await fetch("http://localhost:5000/auth/logout", { method: "POST" });
+        } catch (error) {
+            console.error("Erro ao registrar logout no servidor:", error);
+        }
+    
+        // Remover o token do localStorage e redirecionar para login
+        localStorage.removeItem("token");
+        window.location.href = "pages/login.html";
     });
 });
